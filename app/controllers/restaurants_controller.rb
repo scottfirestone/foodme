@@ -3,6 +3,7 @@ class RestaurantsController < ApplicationController
   respond_to :json
 
   def index
+    Rails.logger.info(request.filtered_parameters)
     @restaurant = Restaurant.all.sample.name
     # respond_with @restaurants.all.sample
     render text: "You should totes try #{@restaurant}"
